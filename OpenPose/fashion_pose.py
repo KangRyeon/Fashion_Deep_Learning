@@ -2,6 +2,11 @@
 import cv2
 
 # MPII에서 각 파트 번호, 선으로 연결될 POSE_PAIRS
+BODY_PARTS_ARRAY = ["Head", "Neck", "RShoulder", "RElbow", "RWrist",
+                "LShoulder", "LElbow", "LWrist", "RHip", "RKnee",
+                "RAnkle", "LHip", "LKnee", "LAnkle", "Chest",
+                "Background" ]
+
 BODY_PARTS = { "Head": 0, "Neck": 1, "RShoulder": 2, "RElbow": 3, "RWrist": 4,
                 "LShoulder": 5, "LElbow": 6, "LWrist": 7, "RHip": 8, "RKnee": 9,
                 "RAnkle": 10, "LHip": 11, "LKnee": 12, "LAnkle": 13, "Chest": 14,
@@ -20,7 +25,7 @@ weightsFile = "D:\\python_D\\fashion_data\\pose_iter_160000.caffemodel"
 net = cv2.dnn.readNetFromCaffe(protoFile, weightsFile)
 
 # 이미지 읽어오기
-image = cv2.imread("D:\\python_D\\fashion_data\\full_body7.png")
+image = cv2.imread("D:\\python_D\\fashion_data\\full_body4.jpg")
 
 # frame.shape = 불러온 이미지에서 height, width, color 받아옴
 imageHeight, imageWidth, _ = image.shape
@@ -55,13 +60,16 @@ for i in range(0,15):
     # 키포인트 검출한 결과가 0.1보다 크면(검출한곳이 위 BODY_PARTS랑 맞는 부위면) points에 추가, 검출했는데 부위가 없으면 None으로    
     if prob > 0.1 :    
         cv2.circle(image, (int(x), int(y)), 3, (0, 255, 255), thickness=-1, lineType=cv2.FILLED)       # circle(그릴곳, 원의 중심, 반지름, 색)
+        print("검출된", BODY_PARTS_ARRAY[i], " 점 : ",str(x), str(y), "\n")
+        
         cv2.putText(image, "{}".format(i), (int(x), int(y)), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1, lineType=cv2.LINE_AA)
         points.append((int(x), int(y)))
     else :
         points.append(None)
 
+print(points)
+
 cv2.imshow("Output-Keypoints",image)
-cv2.waitKey(0)
 
 # 이미지 복사
 imageCopy = image
@@ -81,4 +89,3 @@ for pair in POSE_PAIRS:
 cv2.imshow("Output-Keypoints",imageCopy)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
-
