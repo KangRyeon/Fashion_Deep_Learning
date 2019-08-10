@@ -18,14 +18,14 @@ POSE_PAIRS = [ ["Head", "Neck"], ["Neck", "RShoulder"], ["RShoulder", "RElbow"],
                 ["RKnee", "RAnkle"], ["Chest", "LHip"], ["LHip", "LKnee"], ["LKnee", "LAnkle"] ]
     
 # 각 파일 path
-protoFile = "D:\\python_D\\fashion_data\\pose_deploy_linevec_faster_4_stages.prototxt"
-weightsFile = "D:\\python_D\\fashion_data\\pose_iter_160000.caffemodel"
+protoFile = "D:\\python_D\\fashion_project\\fashion_data\\pose_deploy_linevec_faster_4_stages.prototxt"
+weightsFile = "D:\\python_D\\fashion_project\\fashion_data\\pose_iter_160000.caffemodel"
  
 # 위의 path에 있는 network 불러오기
 net = cv2.dnn.readNetFromCaffe(protoFile, weightsFile)
 
 # 이미지 읽어오기
-image = cv2.imread("D:\\python_D\\fashion_data\\full_body4.jpg")
+image = cv2.imread("D:\\python_D\\fashion_project\\fashion_data\\full_body4.jpg")
 
 # frame.shape = 불러온 이미지에서 height, width, color 받아옴
 imageHeight, imageWidth, _ = image.shape
@@ -70,6 +70,7 @@ for i in range(0,15):
 print(points)
 
 cv2.imshow("Output-Keypoints",image)
+cv2.waitKey(0)
 
 # 이미지 복사
 imageCopy = image
