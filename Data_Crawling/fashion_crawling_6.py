@@ -34,7 +34,7 @@ for i in range(0, 1):   # 옷의 종류(7번 루프 돎.)
         # 이미지 저장위한 폴더 생성
         folder = ''
         try:
-            folder = save_path + folder_name    # D:\python_D\fashion_data\outer\cardigan 이라는 폴더경로이름
+            folder = save_path + folder_name    # D:\python_D\fashion_project\fashion_data\outer\cardigan 이라는 폴더경로이름
             os.mkdir(folder)                                            # 각 품종에 대한 폴더 생성함.
             print(folder_name + " : 폴더 생성 성공 : ")
         except:
@@ -50,7 +50,7 @@ for i in range(0, 1):   # 옷의 종류(7번 루프 돎.)
                 if(count < 0):
                     count = count+1
                     continue
-                if(count > 0 and count < download_count):                   # D:\python_D\fashion_data\outer\cardigan\cardigan_1.jpg 로 저장될 것.
+                if(count > 0 and count < download_count):                   # D:\python_D\fashion_project\fashion_data\outer\cardigan\cardigan_1.jpg 로 저장될 것.
                     full_name = save_path + folder_name + "\\" + file_name + str(count) + ".jpg"
                     print("full_name : " + full_name)
                     try:
