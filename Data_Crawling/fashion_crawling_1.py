@@ -48,3 +48,4 @@ for item in img:
     
 driver.quit()
 print("Saved!")                                  # 다 다운받으면 Saved! 출력됨.
+
