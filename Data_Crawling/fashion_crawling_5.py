@@ -99,3 +99,6 @@ for i in range(0, 1):   # 옷의 종류(7번 루프 돎.)
     except :
         print(folder_name+"다 받음. %d 개"%count)
         driver.quit()
+
+        
+        
