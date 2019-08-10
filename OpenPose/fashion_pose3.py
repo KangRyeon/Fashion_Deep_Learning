@@ -1,6 +1,6 @@
 # fashion_pose3.py : 여러 개 파일에 대해 상의, 하의, 전체에 대해 자동으로 저장할 수 있음. 해당하는 곳에 imwrite 해야 함.
 # fashion_pose2.py 변형
-# original이라는 폴더 내부의 hood_T라는 폴더 내부 이미지 개수 받아와 그만큼 돌아가며, original 폴더 밑에 hood_T_cut 이라는 폴더를 생성해 저장함.
+# original이라는 폴더 내부의 hood_T라는 폴더 내부 이미지 개수 받아와 그만큼 돌아가며, original 폴더 밑에 hood_T_cut_final 이라는 폴더를 생성해 저장함.
 
 import cv2
 from PIL import Image
@@ -133,7 +133,7 @@ for i in range(0, len(image_file_list)) :
     # 이미지 저장위한 폴더 생성
     cut_folder = ''
     try:
-        folder = "D:\\python_D\\fashion_project\\fashion_data\\original\\" + img + "_cut_final"    # D:\\python_D\\fashion_project\fashion_data\original\\hood_T_cut 이라는 폴더경로이름
+        folder = "D:\\python_D\\fashion_project\\fashion_data\\original\\" + img + "_cut_final"    # D:\\python_D\\fashion_project\fashion_data\original\\hood_T_cut_final 이라는 폴더경로이름
         os.mkdir(folder)                                            # 각 품종에 대한 폴더 생성함.
         print(img + "_cut" + " : 폴더 생성 성공")
     except:
@@ -193,7 +193,7 @@ for i in range(0, len(image_file_list)) :
             print("(x_max, x_min, y_max, y_min) = (", x_max, ", ", x_min, ", ", y_max, ", ", y_min, ")")
             cut = resize_image[y_min:y_max, x_min:x_max]
             cut2 = image[y_min:y_max, x_min:x_max]
-            #cv2.imwrite('D:\\python_D\\fashion_project\\fashion_data\\cutting_image\\'+cut_filename,cut2)    # filenmae 위에서 설정
+            #cv2.imwrite('D:\\python_D\\fashion_project\\fashion_data\\original\\'+ img + "_cut_final\\" + cut_filename,cut2)    # filenmae 위에서 설정
             cv2.imshow("cut_image1",cut2)
         except:
             print("전체가 존재하지 않음.")
@@ -213,7 +213,7 @@ for i in range(0, len(image_file_list)) :
             x_max, x_min, y_max, y_min = image_cut_point(points, image.shape[1], image.shape[0], 2)
             print("(x_max, x_min, y_max, y_min) = (", x_max, ", ", x_min, ", ", y_max, ", ", y_min, ")")
             cut4 = resize_image[y_min:y_max, x_min:x_max]
-            #cv2.imwrite('D:\\python_D\\fashion_project\\fashion_data\\cutting_image\\'+cut_filename,cut4)
+            #cv2.imwrite(''D:\\python_D\\fashion_project\\fashion_data\\original\\'+ img + "_cut_final\\" + cut_filename,cut4)
             cv2.imshow("cut_image3",cut4)
         except:
             print("하의부분이 존재하지 않음.")
@@ -241,8 +241,3 @@ for i in range(0, len(image_file_list)) :
 
         print(img + "_" + str(j) + ".jpg 불러옴")
     print(img + "file 다 불러옴\n");
-
-
-
-
-
