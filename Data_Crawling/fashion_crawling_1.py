@@ -1,5 +1,5 @@
 # fashion_crawling_1.py : test를 위한 코드(가디건 5장만 크롤링해보기)
-# 옷 사진 셀레니움으로 크롤링(outer : )
+# 옷 사진 셀레니움으로 크롤링(outer : 가디건, 자켓, 패딩, 롱패딩, 코트, 점퍼, 후드집업)
 '''
 * outer 분류
 1. 가디건 : cardigan
@@ -35,8 +35,8 @@ for item in img:
     if(count < 0):
         count = count+1
         continue
-    if(count > 0 and count <= 5):               # D:\python_D\fashion_data\outer\cardigan\cardigan_1.jpg 로 저장될 것.
-        full_name = "D:\\python_D\\fashion_data\\outer\\"+ folder_name + "\\" + file_name + str(count) + ".jpg"
+    if(count > 0 and count <= 5):               # D:\\python_D\\fashion_project\\fashion_data\outer\cardigan\cardigan_1.jpg 로 저장될 것.
+        full_name = "D:\\python_D\\fashion_project\\fashion_data\\crawling\\"+ folder_name + "\\" + file_name + str(count) + ".jpg"
         try:
             urllib.request.urlretrieve(item.get_attribute('src'), full_name) # src를 받는다.
             print(item.get_attribute('src')[:30] + " : ")
