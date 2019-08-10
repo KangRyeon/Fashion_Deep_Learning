@@ -20,15 +20,18 @@ import time
 import os
 
 # 옷 종류
-#clothing = ["가디건", "자켓", "패딩", "롱패딩", "코트", "점퍼", "후드집업"]
-clothing = ["가디건"]
+'''
+clothing = ["가디건", "자켓", "패딩", "롱패딩", "코트", "점퍼", "후드집업"]
 clothing_en = ["cardigan", "jacket", "padding", "long_padding", "coat", "jumper", "hood_zipup"]
+'''
+clothing = ["블라우스/셔츠", "긴팔티셔츠", "긴팔카라티셔츠", "반팔티셔츠", "반팔카라티셔츠", "후드", "민소매/나시", "폴라티", "조끼"]
+clothing_en = ["shirt", "long_T", "long_kara_T", "short_T", "short_kara_T", "hood_T", "sleeveless", "pola", "vest"]
 
 # 변수 설정
 download_count = 200                                                    # download_count = 다운받을 이미지 총 개수
 python_path = "D:\\python_D\\"                                          # python 경로 표시
-save_path = python_path + "\\fashion_data\\outer\\"                     # save 경로 표시 (D:\\python_D\\fashion_data\\outer\\)
-
+#save_path = python_path + "\\fashion_data\\outer\\"                     # save 경로 표시 (D:\\python_D\\fashion_data\\outer\\)
+save_path = python_path + "fashion_project\\fashion_data\\outer_capstone\\"
 
 # 옷 종류만큼 크롤링 시작(download_count만큼 크롤링하게 됨.)
 for i in range(0, len(clothing)):   # 옷의 종류(7번 루프 돎.)
@@ -57,7 +60,7 @@ for i in range(0, len(clothing)):   # 옷의 종류(7번 루프 돎.)
         # 이미지 저장위한 폴더 생성
         folder = ''
         try:
-            folder = save_path + folder_name    # D:\python_D\fashion_data\outer\cardigan 이라는 폴더경로이름
+            folder = save_path + folder_name    # D:\\python_D\\fashion_project\\fashion_data\outer\cardigan 이라는 폴더경로이름
             os.mkdir(folder)                                            # 각 품종에 대한 폴더 생성함.
             print(folder_name + " : 폴더 생성 성공 : ")
         except:
@@ -70,7 +73,7 @@ for i in range(0, len(clothing)):   # 옷의 종류(7번 루프 돎.)
             if(count < 0):
                 count = count+1
                 continue
-            if(count > 0 and count < download_count):                   # D:\python_D\fashion_data\outer\cardigan\cardigan_1.jpg 로 저장될 것.
+            if(count > 0 and count < download_count):                   # D:\\python_D\\fashion_project\fashion_data\outer\cardigan\cardigan_1.jpg 로 저장될 것.
                 full_name = save_path + folder_name + "\\" + file_name + str(count) + ".jpg"
                 try:
                     urllib.request.urlretrieve(item.get_attribute('src'), full_name) # src를 받는다.
