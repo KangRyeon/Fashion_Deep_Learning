@@ -3,17 +3,6 @@
 # fashion_data, giodano 라는 폴더는 미리 생성해 두어야 함.
 # 보이는 페이지에서 눌러 들어가 데이터를 얻을 경우
 # shesmiss x list 에서 할때
-'''
-* outer 분류
-1. 가디건 : cardigan
-2. 자켓 : jacket
-3. 패딩 : padding
-4. 롱패딩 : long_padding
-5. 코트 : coat
-6. 점퍼 : jumper
-7. 후드집업 : hood_zipup
-'''
-
 import requests
 import urllib.request
 import random
@@ -22,15 +11,6 @@ from selenium.webdriver.common.keys import Keys
 import time
 import os
 
-# 옷 종류
-'''
-clothing = ["가디건", "자켓", "패딩", "롱패딩", "코트", "점퍼", "후드집업"]
-clothing_en = ["cardigan", "jacket", "padding", "long_padding", "coat", "jumper", "hood_zipup"]
-'''
-'''
-clothing = ["블라우스/셔츠", "긴팔티셔츠", "긴팔카라티셔츠", "반팔티셔츠", "반팔카라티셔츠", "후드", "민소매/나시", "폴라티", "조끼"]
-clothing_en = ["shirt", "long_T", "long_kara_T", "short_T", "short_kara_T", "hood_T", "sleeveless", "pola", "vest"]
-'''
 # 변수 설정
 download_count = 2000                                                    # download_count = 다운받을 이미지 총 개수
 python_path = "D:\\python_D\\"                                          # python 경로 표시
