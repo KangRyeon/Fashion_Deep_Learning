@@ -6,5 +6,8 @@
       animals/cat/cat_1.jpg     : 하위폴더명_1.jpg 로 변경함.
 
 * image_padding_one.py
+    - 한개의 이미지 크기를 줄이고, 300 x 300으로 패딩을 입혀 저장
     - filename에 지정한 파일을 save_filename에 지정한 파일 이름으로
-    - 이미지 크기를 줄이고, 300 x 300으로 패딩을 입혀 저장
+
+* image_padding.py
+    - 여러개 이미지 크기를 줄이고, 300 x 300으로 패딩을 입혀 저장
