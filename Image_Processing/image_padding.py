@@ -62,4 +62,3 @@ for img_list in range(0, len(image_file_list)) :
         # 이미지 저장하기
         cv2.imwrite(save_filename, img_re)
         cv2.destroyAllWindows()
-
